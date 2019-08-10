@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+
+
+    defaultConfig {
+        applicationId "com.example.demo1F"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    signingConfigs {
+        release {
+            keyAlias 'demo'
+            keyPassword 'demo123'
+            storeFile file('../demo.keystore')
+            storePassword 'demo123'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//设置AAR本地仓库
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+    implementation 'com.android.support:design:26.0.0'
+    implementation group: 'com.android.support', name: 'support-v4', version: '26.0.0'
+    //直接使用线上的类库
+    //implementation group: 'com.gibb', name: 'easyclick', version: '1.0.9-no-image', ext: 'aar'
+
+    //使用本地 libs文件夹中的类库
+    implementation(name: 'easyclick-1.0.9-no-image', ext: 'aar')
+
+
+}

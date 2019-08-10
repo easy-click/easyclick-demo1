@@ -1,1 +1,1 @@
-# easyclick-demo1
+# sdk-demo
