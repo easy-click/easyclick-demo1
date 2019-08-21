@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         ApiStarter apiStarter = ApiStarter.getInstance(getApplicationContext());
 
         //设置运行模式 1 代理模式，2 无障碍模式
-        ApiStarter.getInstance(getApplicationContext()).setRunningMode(2);
+        ApiStarter.getInstance(getApplicationContext()).setRunningMode(1);
 
         //打开悬浮窗
         ApiStarter.getInstance(getApplicationContext()).showFloatControlForUi("main.xml");
