@@ -66,10 +66,10 @@ dependencies {
     implementation 'com.android.support:design:26.0.0'
     implementation group: 'com.android.support', name: 'support-v4', version: '26.0.0'
     //直接使用线上的类库
-    //implementation group: 'com.gibb', name: 'easyclick', version: '1.0.9-no-image', ext: 'aar'
+    //implementation group: 'com.gibb', name: 'easyclick', version: 'easyclick-1.5.0-all', ext: 'aar'
 
     //使用本地 libs文件夹中的类库
-    implementation(name: 'easyclick-1.0.9-no-image', ext: 'aar')
+    implementation(name: 'easyclick-1.5.0-all', ext: 'aar')
 
 
 }

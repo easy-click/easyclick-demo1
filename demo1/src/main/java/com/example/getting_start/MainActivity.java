@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ApiStarter apiStarter = ApiStarter.getInstance(getApplicationContext());
 
+        //设置运行模式 1 代理模式，2 无障碍模式
+        apiStarter.setRunningMode(2);
+
         //打开悬浮窗
         ApiStarter.getInstance(getApplicationContext()).showFloatControlForUi("main.xml");
-
         apiStarter.setDefaultClass(Main.class.getName());
-
         View view = apiStarter.generateUiView("main.xml", true);
-        
         setContentView(view);
     }
 }
